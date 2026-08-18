@@ -30,7 +30,7 @@ jobs:
         run: |
           $jsonContent = @{
             assetId = "${{ secrets.IRIS_ASSET_ID }}"
-            token = "${{ secrets.IRIS_JWT }}"
+            token = "${{ secrets.IRIS_TOKEN }}"
             authEndpoint = "${{ secrets.APP_AUTH_ENDPOINT }}"
             username = "${{ secrets.APP_USERNAME }}"
             password = "${{ secrets.APP_PASSWORD }}"
