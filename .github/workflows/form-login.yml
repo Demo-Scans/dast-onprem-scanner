@@ -1,4 +1,4 @@
-name: SAST Scan All Branches
+name: DAST Scan Form Authentication
 
 on:
   workflow_dispatch:
