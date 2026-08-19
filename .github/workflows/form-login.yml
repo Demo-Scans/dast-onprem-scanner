@@ -52,4 +52,4 @@ jobs:
       - name: Run Scan 
         shell: powershell
         run: |
-          .\iris-scanner.exe scan --url "${{ secrets.APP_DOMAIN }}" --mode "${{ github.event.inputs.scanner_depth }}" ${{ fromJSON('["", "--authenticated"]')[github.event.inputs.require_authentication == 'true'] }} --sensitivity --mode "${{ github.event.inputs.sensitivity_level }}" 
+          .\iris-scanner.exe scan --url "${{ secrets.APP_DOMAIN }}" --mode "${{ github.event.inputs.scanner_depth }}" ${{ fromJSON('["", "--authenticated"]')[github.event.inputs.require_authentication == 'true'] }} --sensitivity "${{ github.event.inputs.sensitivity_level }}" 
