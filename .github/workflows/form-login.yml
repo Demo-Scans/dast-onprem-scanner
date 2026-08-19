@@ -9,6 +9,13 @@ on:
         - baseline
         - full
         type: choice
+      sensitivity_level:
+        description: 'Sensitivity vulnerability level'
+        options: 
+        - soft
+        - medium
+        - strong
+        type: choice
       require_authentication:
         type: boolean
         description: 'Whether or not to run authenticated analyses'
@@ -45,4 +52,4 @@ jobs:
       - name: Run Scan 
         shell: powershell
         run: |
-          .\iris-scanner.exe scan --url "${{ secrets.APP_DOMAIN }}" --mode "${{ github.event.inputs.name }}" ${{ fromJSON('["", "--authenticated"]')[github.event.inputs.require_authentication == 'true'] }}
+          .\iris-scanner.exe scan --url "${{ secrets.APP_DOMAIN }}" --mode "${{ github.event.inputs.scanner_depth }}" ${{ fromJSON('["", "--authenticated"]')[github.event.inputs.require_authentication == 'true'] }} --sensitivity --mode "${{ github.event.inputs.sensitivity_level }}" 
